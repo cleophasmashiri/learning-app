@@ -1,0 +1,9 @@
+.jumbotron {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    margin-bottom: 0;
+    background-color: #fff;
+}
+.text-center {
+    text-align: center!important;
+}

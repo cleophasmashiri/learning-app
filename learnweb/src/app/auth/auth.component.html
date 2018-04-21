@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+    <div class="panel panel-default">
+      <div class="page-header">
+        <h2>Login <small>Using your social account.</small></h2>
+      </div>
+      <div class="panel-body">
+        <div>
+          <button type="button" class="btn btn-outline-primary">Facebook</button>
+        </div> <br/>
+        <div>
+          <button type="button" class="btn btn-outline-primary">Twitter</button>
+        </div><br/>
+        <div>
+          <button type="button" class="btn btn-outline-primary">Google+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br/><br/>
+<hr/>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+    <div class="panel panel-default">
+      <div class="page-header">
+        <h2>Or Login <small>Using your email and password.</small></h2>
+      </div>
+      <div class="panel-body">
+        <form [formGroup]="myForm" (ngSubmit)="onLogin()" novalidate role="form" autocomplete="off">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" formControlName="email" class="form-control" placeholder="Enter your email">
+            <control-messages [control]="myForm.controls.email"></control-messages>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input [(ngModel)]="credential.password" formControlName="password" type="password" class="form-control" placeholder="Enter your password" required>
+            <control-messages [control]="myForm.controls.password"></control-messages>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" [disabled]="!myForm.valid">
+                <span class="glyphicon glyphicon-log-in" ></span> Login - <small>click here to login</small>
+              </button>
+               <button routerLink="/register" type="button" class="btn btn-outline-primary">
+                <span class="glyphicon glyphicon-log-in" ></span> Register - <small>click here to register</small>
+              </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div> 

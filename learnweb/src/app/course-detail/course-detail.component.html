@@ -1,0 +1,60 @@
+<div class="card" *ngIf="course" style="padding:10px 3px 3px 3px">
+  <div class="row">
+    <div class="col-sm-12 col-md-4 col-lg-4">
+      <p><img class="card-img-top" data-src="{{course.images.small}}" alt=""></p>
+    </div>
+    <div class="col-sm-12 col-md-4 col-lg-4">
+      <h4 class="card-title">{{course.name}}</h4>
+      <p class="card-text">{{course.shortDescription}}</p>
+      <p><img width="50px" src="/assets/images/logo.png" alt="{{course.name}}"></p>
+    </div>
+    <div class="col-sm-12 col-md-4 col-lg-4">
+      <ul class="list-unstyled">
+        <li>Start: {{course.start | date: 'dd MMMM yyyy'}}</li>
+        <li>End: {{course.end | date: 'dd MMMM yyyy'}}</li>
+        <li>Price: Free</li>
+      </ul>
+      <button routerLink="/learn/{{courseId}}" type="button" name="" id="" class="btn btn-primary success btn-block">Enroll</button>
+    </div>
+  </div>
+</div>
+
+<br>
+<div class="card" *ngIf="course" style="padding:10px 3px 3px 3px">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <h5 class="card-title">About the course</h5>
+      <p class="card-text">{{course.shortDescription}}</p>
+      <br/>
+      <h5 class="card-title">What you will learn</h5>
+      <ul class="list-styled">
+        <li *ngFor="let objective of course.courseObjectives">{{objective.name}}</li>
+      </ul>
+      <br/>
+      <h5 class="card-title">Course Syllabus</h5>
+      <ul class="list-unstyled">
+        <li *ngFor="let section of course.courseSections">
+          {{section.name}}
+          <ol class="list-styled">
+            <li *ngFor="let subSection of section.courseSubSections">
+              {{subSection.name}}
+            </li>
+          </ol>
+        </li>
+      </ul>
+      <br/>
+      <h5 class="card-title">Instructors</h5>
+      <div class="row" *ngIf="course.courseInstructors">
+        <div class="col-sm-12 col-md-4 col-lg-4">
+          <div class="card" *ngFor="let instructor of course.courseInstructors">
+            <!-- <img class="card-img-top" data-src="{{instructor.name}}" alt="{{instructor.name}}"> -->
+            <div class="card-block">
+              <h5 class="card-title">{{instructor.title}}. {{instructor.name}}</h5>
+              <p class="card-text"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

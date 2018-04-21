@@ -1,0 +1,32 @@
+<section *ngIf="course && course.courseSections">
+  <h2>{{course.name}}</h2>
+  <ngb-accordion #acc="ngbAccordion" (panelChange)="beforeChange($event)" [closeOthers]="true" [activeIds]="weekId">
+    <ngb-panel *ngFor="let section of course.courseSections; index as weekIndex;" id="{{weekIndex+1}}">
+      <ng-template ngbPanelTitle>
+        <i [ngClass]="(weekId==(weekIndex+1))?'fa-folder-open-o': 'fa-folder-o'" class="fa" aria-hidden="true "></i> Week
+        #{{weekIndex+1}} - {{section.name}}
+      </ng-template>
+      <ng-template ngbPanelContent>
+        <ul class="list-group list-unstyled">
+          <li *ngFor="let subSection of section.courseSubSections">
+            <ul class="list-group list-unstyled">
+              <li>
+                <a *ngIf="subSection.videoUrl" routerLink="/video/{{course.id}}/{{weekIndex+1}}/{{subSection.name}}">
+              <i class="fa fa-file-video-o" aria-hidden="true"></i> {{subSection.name}}
+              </a>
+              </li>
+              <li *ngIf="subSection.notes">
+                <a (click)="showNotes(subSection)">
+                  <i [ngClass]="(subSection.notes && subSection.show)? 'fa-minus-square-o': 'fa-plus-square-o'" class="fa" aria-hidden="true"></i> {{subSection.name}}
+                </a>
+                <p *ngIf="subSection.notes && subSection.show">
+                  {{subSection.notes}}
+                </p>
+              </li>
+            </ul>
+
+          </li>
+        </ul>
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>

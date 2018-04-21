@@ -1,0 +1,26 @@
+[
+    {
+        "category": "Cambridge",
+        "name": "Mathematics A level",
+        "description": "Mathematics A Level",
+        "image": "cambridge-a-level-maths"
+    },
+    {
+        "category": "Cambridge",
+        "name": "Mathematics O level",
+        "description": "Mathematics O Level",
+        "image": "cambridge-o-level-maths"
+    },
+    {
+        "category": "Matric",
+        "name": "Pure Mathematics",
+        "description": "Pure Mathematics",
+        "image": "matric-pure-maths"
+    },
+    {
+        "category": "Matric",
+        "name": "Literacy Mathematics",
+        "description": "Literacy Mathematics",
+        "image": "literacy-maths"
+    }
+]
